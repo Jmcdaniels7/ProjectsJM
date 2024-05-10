@@ -1,0 +1,769 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib>
+#include <limits>
+#include <string>
+
+const int MAX_RESERVATIONS = 50;
+const int MAX_TABLES = 20;
+const int MAX_ORDERS = 50;
+const int NUM_MENU_ITEMS = 14;
+
+const double price[NUM_MENU_ITEMS] = {35.00, 45.00, 38.00, 38.00, 38.00, 38.00, 42.00, 42.00, 42.00, 42.00, 59.00, 59.00, 77.00, 77.00};
+
+enum menuOptions {
+    // inorder with the menu options on the assignment 
+    VBURGER,
+    HAMBURGER,
+    CHICKSLID,
+    HAMBSLID,
+    VSLID,
+    HADSAND,
+    BLT,
+    FBLT,
+    CHBURRITO,
+    FWRAP,
+    CHEPIZZA,
+    PEPPIZZA,
+    FMEATNCHIPS,
+    FISHNCHIPS
+};
+
+struct reservationType
+{
+    std::string time;
+    std::string name;
+    int size = 0;
+    bool checkedIn = false;
+
+};
+
+struct manageTable
+{
+    int tableSize;
+    int tableNum;
+    bool usedTable = false;
+    bool ordered = false;
+    reservationType reservationNum;
+
+};
+
+struct manageOrder
+{
+    manageTable tableNum;
+    menuOptions x[10];
+    int numItemsOrdered;
+    bool complete = false;
+    bool paid = false;
+   
+
+};
+struct orderList
+{
+    manageOrder list[MAX_ORDERS];
+    int numOrders;
+};
+
+struct reservationListType
+{
+    reservationType list[MAX_RESERVATIONS];
+    int numReservations = 0;
+};
+
+void makeReservation(reservationListType &reserveList);
+void getReservation();
+void reserveConfirm(reservationType &reservation, bool &cancel);
+int welcome(int choiceOne, bool close);
+void changeReservation(reservationType &reservation);
+void resetStream();
+void displayReservation(reservationType reservation);
+void displayTable(manageTable &table);
+void assignTable(reservationType &reservation, manageTable table[]);
+void enterOrder(manageOrder &order);
+void displayOrder(manageOrder &order);
+void displayEntrees();
+void calculateBill(manageOrder &order);
+
+// we need to try to link the values of i to the input validation for each menu options process
+// 
+
+int main ()
+{
+    //variables
+    int choice = 0;
+    reservationListType reserveList;
+    reservationType reservation;
+    reserveList.numReservations = 0;
+    manageOrder order;
+    manageTable list[MAX_TABLES];
+    orderList orderedList;
+    orderedList.numOrders = 0;
+    bool hasOrders = false;
+    bool hasReserves = false;
+    bool hasTables = false;
+    
+    for (int i = 0; i < MAX_TABLES; i++)
+    {
+       list[i].tableNum = i + 1;
+       if (i < 8)
+       {
+         list[i].tableSize = 2;
+       }
+       else if (i < 10)
+       {
+        list[i].tableSize = 10;
+       }
+       else if (i < 14)
+       {
+        list[i].tableSize = 6;
+       }
+       else if (i < 20)
+       {
+        list[i].tableSize = 4;
+       }
+    }
+
+    while (choice >= 1 || choice <= 6)
+    {
+        for (int i = 0; i < orderedList.numOrders; i++)
+        {
+            if (!orderedList.list[i].complete && !orderedList.list[i].paid)
+            {
+                hasOrders = true;
+            }
+        }
+        for (int i = 0; i < reserveList.numReservations; i++)
+        {
+            if (!reserveList.list[i].checkedIn)
+            {
+                hasReserves = true;
+            }
+        }
+        for (int i = 0; i < MAX_TABLES; i++)
+        {
+            if(!list[i].usedTable)
+            {
+                hasTables = true;
+            }
+        }
+        bool close = !hasOrders && !hasReserves && !hasTables;
+        // welcome ouput and choice function
+        choice = welcome(choice, close);
+
+        
+        // make a reservation if choiceOne = 1
+        if (choice == 1)
+        {
+            if (reserveList.numReservations == MAX_RESERVATIONS)
+            {
+                std::cout << "We are fully Booked" << std::endl;
+            }
+           
+            makeReservation(reserveList);
+            
+        }
+        else if (choice == 2)
+        {
+            std::cout << "Choose the reservation to check in" << std::endl;
+        
+            bool noReserves = true;
+            bool noTables = false;
+            int checkIn;
+            
+            for (int i = 0; i < reserveList.numReservations; i++)
+            {
+                if (!reserveList.list[i].checkedIn)
+                {
+                    noReserves = false;
+                    std::cout << i + 1;
+                    displayReservation(reserveList.list[i]);
+                    
+                }
+            }
+            if (!noReserves)
+            {
+                std::cin >> checkIn;
+                /*for (int i = 1; i < reserveList.numReservations; i++)
+                {
+                    while (!std::cin || checkIn != i)
+                    {
+                        if (!std::cin)
+                        {
+                            resetStream();
+                        }
+                        else if (checkIn != i)
+                        {
+                            std::cout << "That is not a valid choice" << std::endl;
+                        }
+                        std::cout << "Choose the reservation to check in" << std::endl;
+                        if (!reserveList.list[i].checkedIn)
+                        {
+                            noReserves = false;
+                            std::cout << i + 1;
+                            displayReservation(reserveList.list[i]);
+                        }
+                    }*/
+                reserveList.list[checkIn - 1].checkedIn = true;
+                assignTable(reserveList.list[checkIn - 1], list);
+            }
+            else 
+            {
+                std::cout << "There are no reservations to check in. Please make a reservation first." << std::endl;
+            }
+        }
+        else if (choice == 3)
+        {
+            bool noOrders = true;
+            int tableChoice;
+            
+
+            std::cout << "Please choose the table for the order: " << std::endl;
+
+            for (int i = 0; i < MAX_TABLES; i++)
+            {
+                if (list[i].usedTable && !list[i].ordered)
+                {
+                    noOrders = false;
+                    std::cout << list[i].tableNum <<": " << "Table " << list[i].tableNum << std::endl;
+                }
+            }
+            if (!noOrders)
+            {
+                std::cin >> tableChoice;
+                list[tableChoice - 1].ordered = true;
+                orderedList.list[orderedList.numOrders].tableNum = list[tableChoice - 1];
+                enterOrder(orderedList.list[orderedList.numOrders]);
+                orderedList.numOrders++;
+            }
+            else 
+            {
+                std::cout << "There are no tables without orders" << std::endl;
+            }
+
+        }
+        else if (choice == 4)
+        {
+            int orderChoice;
+            bool noOrdersToComplete = true;
+            // need to look at menuOption 3 and figure out how to get orders that are complete,
+            // I think becuase the orders get inputted into the orders array those are the 
+            //completed orders and we need to treat them just like menu option 2 but
+            // we need to print the table like 1: table 10 for every order ready to be completed
+            // then we can put those orders into an array and then choose from them 
+            // in menuOption 5 to calculate the bill
+            // next steps are first we need to look at menu option3 for order then watch videos
+            std::cout << "Choose the order to complete" << std::endl;
+
+            for (int i = 0; i < orderedList.numOrders; i++)
+            {
+                if (!orderedList.list[i].complete)
+                {
+                    noOrdersToComplete = false;
+                    std::cout << i + 1;
+                    displayOrder(orderedList.list[i]);
+                }
+            }
+            if(!noOrdersToComplete)
+            {
+                std::cin >> orderChoice;
+                orderedList.list[orderChoice - 1].complete = true;
+            }
+            else
+            {
+                std::cout << "There are no orders to complete" << std::endl;
+            }
+            //completeOrder();
+        }
+        else if (choice == 5)
+        {
+            int payOrder;
+            char payBill;
+            bool noOrdersToPay = true;
+
+            std::cout << "Choose the order to calculate the bill" << std::endl;
+
+            
+            for (int i = 0; i < orderedList.numOrders; i++)
+            {
+                if(orderedList.list[i].complete && !orderedList.list[i].paid)
+                {
+                    noOrdersToPay = false;
+                    std::cout << i + 1;
+                    displayOrder(orderedList.list[i]);
+                }
+            }
+            if (!noOrdersToPay)
+            {
+                std::cin >> payOrder;
+                calculateBill(orderedList.list[payOrder - 1]);
+                std::cout << "Pay Bill?" << std::endl;
+                std::cin >> payBill;
+                payBill = toupper(payBill);
+                
+                if (payBill == 'Y')
+                {
+                    orderedList.list[payOrder - 1].paid = true;
+                    list[orderedList.list[payOrder -1].tableNum.tableNum - 1].usedTable = false;
+                    list[orderedList.list[payOrder -1].tableNum.tableNum - 1].ordered = false;
+                }
+                else if (payBill == 'N')
+                {
+                    orderedList.list[payOrder - 1].paid = false;
+                }
+                // I tried this input validation and it caused an infinite loop on answering y for test 1 in codegrade
+               /* while (!std::cin || payBill != 'Y' || payBill != 'N')
+                {
+                    if (!std::cin)
+                    {
+                        resetStream();
+                        std::cout << "Enter Y or N." << std::endl;
+                    }
+                    else if (payBill != 'Y' || payBill != 'N')
+                    {
+                        std::cout << "Please enter Y or No" << std::endl;
+                    }
+                    std::cout << "Pay Bill?" << std::endl;
+                    std::cin >> payBill;
+                    payBill = toupper(payBill);
+                }*/
+            }
+            else
+            {
+                std::cout << "There are no orders ready for payment" << std::endl;
+            }
+        }
+        else if (choice == 6)
+        {
+            return 0;
+        }
+        
+    }
+    // if one order complete we use different menu that displays option 6 to close restraunt
+}
+
+// created functions defined
+int welcome(int choiceOne, bool close)
+{
+    // welcome output
+    std::cout << "Welcome to Messijoes" << std::endl;
+    std::cout << "1. Make Reservation" << std::endl;
+    std::cout << "2. Check-in Reservation" << std::endl;
+    std::cout << "3. Enter Order" << std::endl;
+    std::cout << "4. Complete Order" << std::endl;
+    std::cout << "5. Calculate and Pay Bill" << std::endl;
+
+    if (close)
+    {
+        std::cout << "6. close restaurant" << std::endl;
+    }
+
+    // input for choiceOne
+    std::cin >> choiceOne;
+    std::cout << std::endl;
+
+    //input validation for choiceOne
+    while (!std::cin || choiceOne < 1 || choiceOne > 6)
+    {
+        if (!std::cin)
+        {
+            std::cout << "You entered something that is not a number. Please Try again." << std::endl;
+            std::cout << "That is an invalid choice. Please try again." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        else if (choiceOne < 1)
+        {
+            std::cout << "That is an invalid choice. Please try again." << std::endl;
+        }
+        else if (choiceOne > 6)
+        { 
+            std::cout << "That is an invalid choice. Please try again." << std::endl;
+        }
+        std::cout << "Welcome to Messijoes" << std::endl;
+        std::cout << "1. Make Reservation" << std::endl;
+        std::cout << "2. Check-in Reservation" << std::endl;
+        std::cout << "3. Enter Order" << std::endl;
+        std::cout << "4. Complete Order" << std::endl;
+        std::cout << "5. Calculate and Pay Bill" << std::endl;
+
+        // input for choiceOne
+        std::cin >> choiceOne;
+        std::cout << std::endl;
+    }
+    return choiceOne;
+}
+void makeReservation(reservationListType &reserveList)
+{
+    reservationType reservation;
+    bool cancel = false;
+
+    //input for reservation name
+    std::cout << "Enter a name for the reservation:";
+    std::cin >> std::ws;
+    getline(std::cin, reservation.name);
+    std::cout << std::endl;
+
+    //input for number of people in reservation
+    std::cout << "Enter the number of people in the party:";
+    std::cin >> reservation.size;
+    std::cout << std::endl;
+
+    while (!std::cin || reservation.size < 1 || reservation.size > 10)
+    {
+        if (!std::cin)
+        {
+            std::cout << "You entered something that is not a number. Please Try again. The number of people must be between 1 and 10." << std::endl;
+            resetStream();
+        }
+        else if (reservation.size < 1)
+        {
+            std::cout << "The number of people must be between 1 and 10." << std::endl;
+        }
+        else if (reservation.size > 10)
+        {
+            std::cout << "The number of people must be between 1 and 10." << std::endl;
+        }
+        std::cout << "Enter the number of people in the party:";
+        std::cin >> reservation.size;
+        std::cout << std::endl;
+    }
+
+    // input for reservation time
+    std::cout << "Enter the time for the reservation in HH::MM AM/PM:";
+    std::cin >> std::ws;
+    getline(std::cin, reservation.time);
+    std::cout << std::endl;
+
+    while(!std::cin)
+    {
+        resetStream();
+        std::cout << "Enter the time for the reservation in HH::MM AM/PM:";
+        std::cin >> std::ws;
+        getline(std::cin, reservation.time);
+        std::cout << std::endl; 
+    }
+    
+    reserveConfirm(reservation, cancel);
+
+    // need to have saved reservation at index according to reserveList.numReservations
+    if (!cancel)
+    {
+        reserveList.list[reserveList.numReservations] = reservation;
+        reserveList.numReservations++;
+    }
+    
+    
+}
+void reserveConfirm(reservationType &reservation, bool &cancel)
+{
+    while (true)
+    {
+        char reservationConfirmation;
+
+        // reservation confirmation output
+        std::cout << "Please confirm the reservation:" << std::endl;
+        std::cout << "Reservation Name: " << reservation.name << std::endl;
+        std::cout << "Reservation Time: " << reservation.time << std::endl;
+        std::cout << "Number in Party: " << reservation.size << std::endl;
+
+        // reservation confirmation choice
+        std::cout << "Is this information correct [Y]es, [N]o (make changes), [C]ancel?";
+        std::cin >> reservationConfirmation;
+        reservationConfirmation = toupper(reservationConfirmation);
+        std::cout << std::endl;
+
+        if(reservationConfirmation != 'Y' & reservationConfirmation != 'N' & reservationConfirmation != 'C')
+        {
+            std::cout << "Please enter Y, N, or C" << std::endl;
+            resetStream();
+        }                 
+        // reservation confirmation choice results
+        else if (reservationConfirmation == 'Y' )
+        {
+            return ;
+        }
+        else if (reservationConfirmation == 'C'  )
+        {
+            cancel = true;
+            break;
+        }
+        else if (reservationConfirmation == 'N' )
+        {
+            resetStream();
+            changeReservation(reservation);
+        }
+        
+    }
+}
+void resetStream()
+{
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+void changeReservation(reservationType &reservation)
+{
+    int change;
+
+    std::cout << "What do you want to change?" << std::endl;
+    std::cout << "1. Name" << std::endl;
+    std::cout << "2. Number of People" << std::endl;
+    std::cout << "3. Time" << std::endl;
+    std::cout << "4. Cancel" << std::endl;
+    std::cin >> change;
+
+    while(!std::cin || change < 1 || change > 4)
+    {
+        resetStream();
+        std::cout << "Please enter 1-4" << std::endl;
+        std::cin >> change;
+    }
+
+    if (change == 1)
+    {
+        std::cout << "Enter a name for the reservation: " << std::endl;
+        std::cin >> std::ws;
+        getline(std::cin, reservation.name);
+        std::cout << std::endl;
+    }
+    else if (change == 2)
+    {
+        std::cout << "Enter the number of people in the party: " << std::endl;
+        std::cin >> reservation.size;
+        std::cout << std::endl;
+
+        while (!std::cin || reservation.size < 1 || reservation.size > 10)
+        {
+            if (!std::cin)
+            {
+                std::cout << "The number of people must be between 1 and 10." << std::endl;
+                resetStream();
+            }
+            else if (reservation.size < 1)
+            {
+                std::cout << "The number of people must be between 1 and 10." << std::endl;
+            }
+            else if (reservation.size > 10)
+            {
+                std::cout << "The number of people must be between 1 and 10." << std::endl;
+            }
+            std::cout << "Enter the number of people in the party: " << std::endl;
+            std::cin >> reservation.size;
+            std::cout << std::endl;
+        }
+
+    }
+    else if (change == 3)
+    {
+        std::cout << "Enter the time for the reservation in HH::MM AM/PM:" << std::endl;
+        std::cin >> std::ws;
+        getline(std::cin, reservation.time);
+        std::cout << std::endl;
+
+        while(!std::cin)
+        {
+            resetStream();
+            std::cout << "Enter the time for the reservation in HH::MM AM/PM:" << std::endl;
+            std::cin >> std::ws;
+            getline(std::cin, reservation.time);
+            std::cout << std::endl; 
+        }
+
+    }
+
+}
+void displayReservation(reservationType reservation)
+{
+    std::cout << ": " << reservation.name << " - " << reservation.time << ", " << reservation.size << " people" << std::endl;
+}
+void assignTable(reservationType &reservation, manageTable table[])
+{
+    int tableChoice;
+    bool noTables = true;
+    
+    std::cout<< "Please assign a table: " << std::endl;
+
+    for (int i = 0; i < MAX_TABLES; i++)
+    {
+        if (reservation.size <= table[i].tableSize && !table[i].usedTable)
+        {
+            noTables = false;
+            displayTable(table[i]);
+        }   
+    }
+    if (!noTables)
+    {
+        std::cin >> tableChoice;
+        table[tableChoice - 1].usedTable = true;
+        table[tableChoice - 1].reservationNum = reservation;
+    }
+    else
+    {
+        std::cout << "There are no open tables that will fit the party. Please complete some orders and have the customers pay their bills to free up tables." << std::endl;
+        reservation.checkedIn = false;
+    }
+
+    
+    
+}
+void displayTable(manageTable &table)
+{
+    std::cout << table.tableNum << ": " << table.tableSize << " people" << std::endl;
+    
+}
+void displayOrder(manageOrder &order)
+{
+    
+    
+    std::cout << ": "<< "Table " << order.tableNum.tableNum << std::endl;
+
+}
+void enterOrder(manageOrder &order)
+{
+    for (int i = 0; i < order.tableNum.reservationNum.size; i++)
+    {
+        int entreeOrdered;
+
+        std::cout << "Please choose entree number " << i + 1 <<std::endl;
+        displayEntrees();
+        std::cin >> entreeOrdered;
+
+        while (!std::cin || entreeOrdered < 1 || entreeOrdered > 14)
+        {
+            if(!std::cin)
+            {
+                resetStream();
+                std::cout << "you entered something that is not a number. please try again. That is not a valid choice" << std::endl;
+            }
+            else if (entreeOrdered < 1 || entreeOrdered > 14)
+            {
+                std::cout << "That is not a valid choice" << std::endl;
+            }
+            std::cout << "Please choose entree number " << i + 1 <<std::endl;
+            displayEntrees();
+            std::cin >> entreeOrdered;
+        }
+
+        switch(entreeOrdered)
+        {
+            case 1: order.x[i] = VBURGER;
+            break;
+            case 2: order.x[i] = HAMBURGER;
+            break;
+            case 3: order.x[i] = CHICKSLID;
+            break;
+            case 4: order.x[i] = HAMBSLID;
+            break;
+            case 5: order.x[i] =VSLID;
+            break;
+            case 6: order.x[i] =HADSAND;
+            break;
+            case 7: order.x[i] =BLT;
+            break;
+            case 8: order.x[i] =FBLT;
+            break;
+            case 9: order.x[i] =CHBURRITO;
+            break;
+            case 10: order.x[i] =FWRAP;
+            break;
+            case 11: order.x[i] =CHEPIZZA;
+            break;
+            case 12: order.x[i] =PEPPIZZA;
+            break;
+            case 13: order.x[i] = FMEATNCHIPS;
+            break;
+            case 14: order.x[i] = FISHNCHIPS;
+        }
+        order.numItemsOrdered++;
+    }
+    
+}
+void calculateBill(manageOrder &order)
+{
+    std::string menuStr;
+    double subTotal = 0;
+    double tip;
+    double tax;
+    double total;
+
+    std::cout << "Here is the bill for table " << order.tableNum.tableNum << std::endl;
+    
+    for (int i = 0; i < order.numItemsOrdered; i++)
+    {
+        switch(order.x[i] + 1)
+        {
+            case 1: menuStr = "Veggie Burger";
+            break;
+            case 2: menuStr = "Hamburger";
+            break;
+            case 3: menuStr = "Fried Chicken Sliders";
+            break;
+            case 4: menuStr = "Hamburger Sliders";
+            break;
+            case 5: menuStr = "Veggie Sliders";
+            break;
+            case 6: menuStr = "Haddock Sandwich";
+            break;
+            case 7: menuStr = "BLT";
+            break;
+            case 8: menuStr = "Faux BLT";
+            break;
+            case 9: menuStr = "Chicken Burrito";
+            break;
+            case 10: menuStr = "Falafel Wrap";
+            break;
+            case 11: menuStr = "Cheese Pizza";
+            break;
+            case 12: menuStr = "Pepperoni Pizza";
+            break;
+            case 13: menuStr = "Faux Meat and Chips";
+            break;
+            case 14: menuStr = "Fish and Chips";
+        }
+        std::cout << menuStr <<" - " <<"$" << std::setprecision(2) << std::fixed << price[order.x[i]]  << std::endl;
+        subTotal = subTotal + price[order.x[i]];
+    }
+
+    tip = subTotal * 0.20;
+    tax = subTotal * 0.10;
+    total = subTotal + tax + tip;
+
+    // setprecision to 2 decimal places for all below outputs
+    std::cout << "Subtotal: " << "$" << std::setprecision(2) << std::fixed << subTotal << std::endl;
+    std::cout << "Tip: " << "$" << std::setprecision(2) << std::fixed << tip << std::endl;
+    std::cout << "Tax: " << "$" << std::setprecision(2) << std::fixed << tax << std::endl;
+    std::cout << "Total: " << "$" << std::setprecision(2) << std::fixed << total << std::endl;
+}
+void displayEntrees()
+{
+   std::string menu[14]
+   {
+    "Veggie Burger",
+    "Hamburger",
+    "Fried Chicken Sliders",
+    "Hamburger Sliders",
+    "Veggie Sliders",
+    "Haddock Sandwich",
+    "BLT",
+    "Faux BLT",
+    "Chicken Burrito",
+    "Falafel Wrap",
+    "Cheese Pizza",
+    "Pepperoni Pizza",
+    "Faux Meat and Chips",
+    "Fish and Chips"
+   };
+
+   for (int i = 0; i < 14; i++)
+   {
+        std::cout << i + 1 << ":" << menu[i] << std::endl;
+   }
+
+
+}
+
+
+
+
+
+
