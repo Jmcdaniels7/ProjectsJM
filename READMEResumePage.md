@@ -1,0 +1,1 @@
+Using HTML and Bootstrap for frontend development, I designed a page in my website to showcase a formal resume of all of my skills and accolades. Thanks for taking a look at my formal resume page source code.
