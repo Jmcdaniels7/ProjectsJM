@@ -1,3 +1,5 @@
+# Most of this is coded by me besides the framework around each route
+# I mainly coded the logic inside of each route.
 import os
 
 from cs50 import SQL
@@ -40,7 +42,7 @@ def index():
     userId = session["user_id"]
     usernameDB = db.execute("SELECT username FROM users WHERE id = ?", userId)
     username = usernameDB[0]["username"]
-    posts = db.execute("SELECT * FROM posts WHERE )
+    
 
 
     return render_template("index.html", database=transactions_db, cash=usd(cash))
