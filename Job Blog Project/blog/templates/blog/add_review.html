@@ -1,0 +1,28 @@
+<!--Kendal Jackson, 10/10/24, 11am-->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="wrapper">
+    <h2>Review our Website</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="number" name="rating" min="1" max="5" required><br>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Comment:</label><br>
+            <textarea name="comment" rows="4" cols="50" required></textarea><br>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit Review" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+{% endblock %}
+<!--Jacob McDaniels, 10/11/24, 7:07pm-->
+
+
+
