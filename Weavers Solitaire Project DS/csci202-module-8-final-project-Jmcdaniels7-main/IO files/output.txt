@@ -1,0 +1,1005 @@
+my computer will not remember all output
+// multiple cards are being duplicated more than twice
+
+
+1: ♣ Q      2: ♦ 3      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♥ 7      9: ♣ 2      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 62
+
+Pick a card from a pile to play:
+9
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ Q     2: ♦ 3     3: ♦ 6     4: ♠ 10     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♥ 7     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ K  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ A
+
+Play Count: 62
+
+21
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ K     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♣ Q      2: ♦ 3      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♥ 7      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 63
+
+Pick a card from a pile to play:
+8
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ Q     2: ♦ 3     3: ♦ 6     4: ♠ 10     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♣ Q     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ K  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 63
+
+7
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ K     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♣ Q      2: ♦ 3      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♣ Q      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 64
+
+Pick a card from a pile to play:
+8
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ Q     2: ♦ 3     3: ♦ 6     4: ♠ 10     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ K  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 64
+
+12
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ K     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♣ Q      2: ♦ 3      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 65
+
+Pick a card from a pile to play:
+2
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ Q     2: ♥ Q     3: ♦ 6     4: ♠ 10     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ K  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 65
+
+3
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ K     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♣ Q      2: ♥ Q      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 66
+
+Pick a card from a pile to play:
+2
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ Q     2: ♦ 2     3: ♦ 6     4: ♠ 10     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ K  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 66
+
+14
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♣ Q      2: ♦ 2      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 67
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 5     2: ♦ 2     3: ♦ 6     4: ♠ 10     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 67
+
+12
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♠ 5      2: ♦ 2      3: ♦ 6      4: ♠ 10      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 68
+
+Pick a card from a pile to play:
+4
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 5     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♣ J     7: ♦ 6     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 68
+
+10
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♠ 5      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♣ J      7: ♦ 6      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 69
+
+Pick a card from a pile to play:
+6
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 5     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♦ 6     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 69
+
+11
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♠ 5      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♦ 6      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 70
+
+Pick a card from a pile to play:
+7
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 5     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 70
+
+6
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♠ 5      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 71
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 7     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 71
+
+5
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 8     ♣ 7
+
+Tableaus
+
+1: ♠ 7      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 72
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♥ 2     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 8  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 72
+
+15
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 7     ♣ 7
+
+Tableaus
+
+1: ♥ 2      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 73
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♥ J     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 7  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 73
+
+2
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ Q     ♦ J     ♠ 7     ♣ 7
+
+Tableaus
+
+1: ♥ J      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 74
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♥ 7     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ Q  15.♠ 7  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 74
+
+14
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 7     ♣ 7
+
+Tableaus
+
+1: ♥ 7      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 75
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ 4     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 7  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 75
+
+7
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 7     ♣ 7
+
+Tableaus
+
+1: ♣ 4      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 76
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 4     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 7  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 76
+
+4
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 7     ♣ 7
+
+Tableaus
+
+1: ♠ 4      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 77
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♠ 6     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 7  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 77
+
+4
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 7     ♣ 7
+
+Tableaus
+
+1: ♠ 6      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 78
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♣ 2     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 7  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 78
+
+15
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 6     ♣ 7
+
+Tableaus
+
+1: ♣ 2      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 79
+
+Pick a card from a pile to play:
+1
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♦ A     2: ♦ 2     3: ♦ 6     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 6  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 79
+
+2
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 6     ♣ 7
+
+Tableaus
+
+1: ♦ A      2: ♦ 2      3: ♦ 6      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 80
+
+Pick a card from a pile to play:
+3
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♦ A     2: ♦ 2     3: ♥ 4     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8: ♠ 5     9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 6  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 80
+
+6
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 6     ♣ 7
+
+Tableaus
+
+1: ♦ A      2: ♦ 2      3: ♥ 4      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 81
+
+Pick a card from a pile to play:
+8
+
+
+Where would you like to place your card?
+
+Tableaus
+
+1: ♦ A     2: ♦ 2     3: ♥ 4     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8:       9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 6  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 81
+
+15
+
+
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 5     ♣ 7
+
+Tableaus
+
+1: ♦ A      2: ♦ 2      3: ♥ 4      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8:         
+9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 82
+
+Pick a card from a pile to play:
+8
+
+
+This Tableau is empty!
+Where would you like to place your card?
+
+Tableaus
+
+1: ♦ A     2: ♦ 2     3: ♥ 4     4: ♠ 8     5: ♣ 10     
+6: ♠ A     7: ♣ 4     8:       9: ♦ 9     
+10: ♦ 9     11: ♠ J     12: ♥ 6     
+
+13. King Pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+King Foundations
+
+14.♥ J  15.♠ 5  16.♦ J  17.♣ 7
+Ace Foundations
+
+18.♥ 3  19.♠ 2  20.♦ 3  21.♣ 2
+
+Play Count: 82
+
+19
+
+
+Invalid play 
+Ace Foundations
+
+♥ 3     ♦ 3     ♠ 2     ♣ 2
+
+King Foundations
+
+♥ J     ♦ J     ♠ 5     ♣ 7
+
+Tableaus
+
+1: ♦ A      2: ♦ 2      3: ♥ 4      4: ♠ 8      5: ♣ 10      6: ♠ A      7: ♣ 4      
+8: ♠ 5      9: ♦ 9      10: ♦ 9      11: ♠ J      12: ♥ 6      
+
+13. Fanned out King pile
+♣ K  ♦ K  ♦ K  ♥ K  ♠ K  ♣ K  
+
+14. Draw from exile
+
+Play Count: 83
+
+Pick a card from a pile to play:

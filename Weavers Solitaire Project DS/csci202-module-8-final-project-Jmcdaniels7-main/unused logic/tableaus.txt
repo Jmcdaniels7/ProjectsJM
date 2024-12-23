@@ -1,0 +1,106 @@
+if (j == 1)
+                {
+                    // if deck[i].Cards() == 1
+                        //exile.push()
+                    // else
+                        //t1.push()
+
+                }
+                else if (j == 2)
+                {
+                    // if deck[i].Cards() == 2
+                        //exile.push()
+                    //else
+                        //t2.push()
+
+                }
+                else if (j == 3)
+                {
+                    // if deck[i].Cards() == 3
+                        //exile.push()
+                    //else
+                        //t3.push()
+
+                }
+                else if (j == 4)
+                {
+                    // if deck[i].Cards() == 4
+                        //exile.push()
+                    //else
+                        //t4.push()
+
+                }
+                else if (j == 5)
+                {
+                    // if deck[i].Cards() == 5
+                        //exile.push()
+                    //else
+                        //t5.push()
+
+                }
+                else if (j == 6)
+                {
+                    // if deck[i].Cards() == 6
+                        //exile.push()
+                    //else
+                        //t6.push()
+
+                }
+                else if (j == 7)
+                {
+                    // if deck[i].Cards() == 7
+                        //exile.push()
+                    //else
+                        //t7.push()
+
+                }
+                else if (j == 8)
+                {
+                    // if deck[i].Cards() == 8
+                        //exile.push()
+                    //else
+                        //t8.push()
+
+                }
+                else if (j == 9)
+                {
+                    // if deck[i].Cards() == 9
+                        //exile.push()
+                    //else
+                        //t9.push()
+
+                }
+                else if (j == 10)
+                {
+                    // if deck[i].Cards() == 10
+                        //exile.push()
+                    //else
+                        //t10.push()
+
+                }
+                else if (j == 11)
+                {
+                    // if deck[i].Cards() == JAck
+                        //exile.push()
+                    //else
+                        //t11.push()
+
+                }
+                else if (j == 12)
+                {
+                    // if deck[i].Cards() == Queen
+                        //exile.push()
+                    //else
+                        //t12.push()
+
+                }
+                else if (j == 13)
+                {
+                    // if deck[i].Cards() == KING
+                        //exile.push()
+                    //else
+                        //push_back because 13th pile is a vector for fanned pile
+                        //t13.push_back()
+
+                }
+

@@ -1,0 +1,760 @@
+this is the initial attempt at weavers logic and has a potentially useful undo method
+that undos plays and puts the cards back into their original places before the play occured.
+
+/*void weavers()
+{
+    while(true)
+    {
+        stackType<Cards> tableaus[tsize];
+        linkedQueueType<Cards> qTableaus[tsize];
+
+        //foundations
+        stackType<Cards> kFHearts;
+        stackType<Cards> kFDiamonds;
+        stackType<Cards> kFSpades;
+        stackType<Cards> kFClubs;
+        stackType<Cards> aFHearts;
+        stackType<Cards> aFDiamonds;
+        stackType<Cards> aFSpades;
+        stackType<Cards> aFClubs;
+
+        //exile
+        stackType<Cards> exile;
+
+        // fanned 13th pile/king pile
+        std::vector<Cards> t13;
+
+        // here we will insert 2 decks of cards into a vector
+        std::vector<Cards> deck;
+
+        // these are to keep track of the last card inserted into the foundations
+        int countkH = 12;
+        int countkS = 12;
+        int countkD = 12;
+        int countkC = 12;
+        int countaH = 0;
+        int countaS = 0;
+        int countaD = 0;
+        int countaC = 0;
+        Cards kFDLast;
+        Cards kFHLast;
+        Cards kFSLast;
+        Cards kFCLast;
+        Cards aFDLast;
+        Cards aFHLast;
+        Cards aFSLast;
+        Cards aFCLast;
+        Cards card;
+    
+        // this fills the deck
+        deck = card.setUpDeck(deck);
+
+        // shuffles the deck
+        std::random_shuffle ( deck.begin(), deck.end() );
+
+        //filling foundations and setting last card initializing lastCard inserted at foundations
+        for (int i = 0; i < deck.size(); i++)
+        {
+            // search for king foundations
+            if(deck[i].getRank() == Cards::ranks[12])
+            {
+                if(deck[i].getSuit() == Cards::suits[0] && countkH < 1)
+                {
+                    kFHLast = deck[i];
+                    kFHearts.push(deck[i]);
+                    countkH--;
+                }
+                else if(deck[i].getSuit() == Cards::suits[1] && countkS < 1)
+                {
+                    kFSLast = deck[i];
+                    kFSpades.push(deck[i]);
+                    countkS--;
+                    
+                }
+                else if(deck[i].getSuit() == Cards::suits[2] && countkD < 1)
+                {
+                    kFDLast = deck[i];
+                    kFDiamonds.push(deck[i]);
+                    countkD--;
+                }
+                else if(deck[i].getSuit() == Cards::suits[3] && countkC < 1)
+                {
+                    kFCLast = deck[i];
+                    kFClubs.push(deck[i]);
+                    countkC--;
+                }
+            }
+
+            // search for ace foundations
+            if(deck[i].getRank() == Cards::ranks[0])
+            {
+                if(deck[i].getSuit() == Cards::suits[0] && countaH < 1)
+                {
+                    aFHLast = deck[i];
+                    aFHearts.push(deck[i]);
+                    countaH++;
+                }
+                else if(deck[i].getSuit() == Cards::suits[0] && countaS < 1)
+                {
+                    aFSLast = deck[i];
+                    aFSpades.push(deck[i]);
+                    countaS++;
+                }
+                else if(deck[i].getSuit() == Cards::suits[0] && countaD < 1)
+                {
+                    aFDLast = deck[i];
+                    aFDiamonds.push(deck[i]);
+                    countaD++;
+                }
+                else if(deck[i].getSuit() == Cards::suits[0] && countaC < 1)
+                {
+                    aFCLast = deck[i];
+                    aFClubs.push(deck[i]);
+                    countaC++;
+                }
+            }
+        }
+       
+        // dealing out rest of cards into tableaus and piles
+        for (int i = 0; i < deck.size(); i++)
+        {
+            for (int j = 0; j <= tsize; j++)
+            {
+                //if card rank matches tableau it goes in the exile
+                if(deck[i].getRank() == Cards::ranks[j - 1])
+                {
+                    exile.push(deck[i]);
+                }
+                // 13th fanned pile
+                else if(j == 13)
+                {
+                    t13.push_back(deck[i]);
+                }
+                // else we put into tableau
+                else
+                {
+                    tableaus[j].push(deck[i]);
+                }
+            }
+        }
+
+        while(!won(kFHearts, kFDiamonds, kFSpades, kFClubs, aFHearts, aFDiamonds, aFSpades, aFClubs))
+        {
+            int cardChoice;
+            int pChoice;
+            int lastCardChoice;
+            int playCount = 0;
+
+            //present the board and return a choice of the card to take to play
+            // we can only pick from tableau top, exile, and 13th pile
+            cardChoice = cChoice(tableaus, t13);
+
+            // card picked to play
+            Cards cardPick;
+            Cards lastCardPick;
+            stackType<Cards> lastTableauWeaved;
+            std::vector<Cards> lastCardIn13th;
+            stackType<Cards> lastExileDrawn;
+
+            // initializing the picked card
+            if(cardChoice >= 1 || cardChoice <= 12)
+            {
+                for(int i = 0; i <= tsize; i++)
+                {
+                    cardPick = tableaus[i].top();
+                    tableaus[i].pop();
+                    break;
+                }
+            }
+            else if (cardChoice == 13 || cardChoice == 14)
+            {
+                if(cardChoice == 13)
+                {
+                    int kingPile;
+                    std::cout << "Please choose a card from the King Pile:" << std::endl;
+                    for(int i = 0; i < t13.size(); i++)
+                    {
+                        std::cout << i + 1 << ". " << t13[i] << "  ";
+
+                    }
+
+                    std::cin >> kingPile;
+
+                    while(!std::cin || (kingPile < 1 || kingPile > t13.size()))
+                    {
+                        std::cout << "Please choose a valid option from the King Pile." << std::endl;
+                        resetStream();
+                        std::cin >> kingPile;
+                    }
+
+                    cardPick = t13[kingPile - 1];
+                }
+                else if (cardChoice == 14)
+                {
+                    cardPick = exile.top();
+                    exile.pop();
+                }
+            }
+
+            // menu for choosing card placement
+            pChoice = placement(tableaus, t13, aFHearts, aFSpades, aFDiamonds, aFClubs, kFHearts, kFSpades, kFDiamonds, kFClubs);
+
+            //plays on tableaus
+            if(pChoice > 1 && pChoice <= 13)
+            {
+                for(int i = 0; i <= tsize; i++)
+                {
+                    if (pChoice == 13 && cardPick.getRank() == Cards::ranks[12])
+                    {
+                        t13.push_back(cardPick);
+                        break;
+                    }
+                    else if((pChoice - 1) == i && cardPick.getRank() == i)
+                    {
+                        // this is the weaving process for tableaus 1-12
+
+                        //stack top = first in queue
+                        while(!tableaus[i].isEmptyStack())
+                        {
+                            qTableaus[i].enqueue(tableaus[i].top());
+                            tableaus[i].pop();
+                        }
+
+                        //cardPick is at back of Queue
+                        qTableaus[i].enqueue(cardPick);
+                        
+                        //cardPick now equals first in queue
+                        qTableaus[i].revQueue(qTableaus[i]);
+
+                        // first in queue goes to the bottom of the stack
+                        while(!qTableaus[i].isEmptyQueue())
+                        {
+                            tableaus[i].push(qTableaus[i].dequeue());
+                        }
+
+                        //whatever tableau was inserted into last
+                        lastTableauWeaved = tableaus[i];
+                        break;
+
+                    }
+                    else
+                    {
+                        std::cout << "Invalid play " << std::endl;
+
+                        //puts back the card
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            if(cardChoice == i)
+                            {
+                                tableaus[i].push(cardPick);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            // plays on foundations
+            else if (pChoice > 13 && pChoice <= 21)
+            {
+                //14-21 for foundation placements
+
+                //kings 14-17
+                if(pChoice == 14 && cardPick.getRank() == Cards::ranks[countkH])
+                {
+                    //validates the play
+                    kFHearts.push(cardPick);
+                    kFHLast = kFHearts.top();
+                    countkH--;
+                }
+                else if(pChoice == 15 && cardPick.getRank() == Cards::ranks[countkS])
+                {
+                    
+                    kFSpades.push(cardPick);
+                    kFSLast = kFSpades.top();
+                    countkS--;
+                    
+                }
+                else if(pChoice == 16 && cardPick.getRank() == Cards::ranks[countkD])
+                {
+                    kFDiamonds.push(cardPick);
+                    kFDLast = kFDiamonds.top();
+                    countkD--;
+                    
+                }
+                else if(pChoice == 17 && cardPick.getRank() == Cards::ranks[countkD])
+                {
+                    kFClubs.push(cardPick);
+                    kFCLast = kFClubs.top();
+                    countkC--;
+                }
+                
+                //aces 18-21
+                else if(pChoice == 18 && cardPick.getRank() == Cards::ranks[countaH])
+                {
+                    aFHearts.push(cardPick);
+                    aFHLast = aFHearts.top();
+                    countaH++;
+                    
+                }
+                else if(pChoice == 19 && cardPick.getRank() == Cards::ranks[countaS])
+                {
+                    aFSpades.push(cardPick);
+                    aFSLast = aFSpades.top();
+                    countaS++;
+
+                }
+                else if(pChoice == 20 && cardPick.getRank() == Cards::ranks[countaD])
+                {
+                    aFDiamonds.push(cardPick);
+                    aFDLast = aFDiamonds.top();
+                    countaD++;
+                    
+                }
+                else if(pChoice == 21 && cardPick.getRank() == Cards::ranks[countaC])
+                {
+                    aFClubs.push(cardPick);
+                    aFCLast = aFClubs.top();
+                    countaC++;
+                }
+                else
+                {
+                    std::cout << "Invalid play " << std::endl;
+
+                    //puts back the card
+                    if(cardChoice >= 1 && cardChoice <= 12)
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[i].push(cardPick);
+                        }
+                    }
+                    else if(cardChoice == kingPile || cardChoice == EXILE)
+                    {
+                        if(cardChoice == kingPile)
+                        {
+                            t13.push_back(cardPick);
+                        }
+                        else if(cardChoice == EXILE)
+                        {
+                            exile.push(cardPick);
+                        }
+                    }
+                }
+            }
+            // undo plays
+            else if (pChoice == 22 && playCount >= 1)
+            {
+                std::cout << "Undoing last play" << std::endl;
+
+                // you can only play cards on tableaus, foundations, and the 13th pile
+                // you can only take from tableau top, exile top, and 13th pile
+
+                //if last card was from tableaus 1-12
+                if(lastCardChoice >= 1 && lastCardChoice <= 12)
+                {
+                    // this handles foundation play undos from top of a tableau
+                    if (lastCardPick == kFHearts.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(kFHearts.top());
+                            break;
+                        }
+                        kFHearts.pop();
+                        countkH++;
+
+                    }
+                    else if (lastCardPick == kFSpades.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(kFSpades.top());
+                            break;
+                        }
+                        kFSpades.pop();
+                        countkS++;
+                    }
+                    else if (lastCardPick == kFDiamonds.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(kFDiamonds.top());
+                            break;
+                        }
+                        kFDiamonds.pop();
+                        countkD++;
+                        
+                    }
+                    else if (lastCardPick == kFClubs.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(kFClubs.top());
+                            break;
+                        }
+                        kFClubs.pop();
+                        countkC++;
+
+                        
+                    }
+                    else if (lastCardPick == aFHearts.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(aFHearts.top());
+                            break;
+                        }
+                        aFHearts.pop();
+                        countaH--;
+                        
+                    }
+                    else if (lastCardPick == aFSpades.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(aFSpades.top());
+                            break;
+                        }
+                        aFSpades.pop();
+                        countaS--;
+                        
+                    }
+                    else if (lastCardPick == aFDiamonds.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(aFDiamonds.top());
+                            break;
+                        }
+                        aFDiamonds.pop();
+                        countaD--;
+                        
+                    }
+                    else if (lastCardPick == aFClubs.top())
+                    {
+                        for(int i = 0; i <= tsize; i++)
+                        {
+                            tableaus[lastCardChoice - 1].push(aFClubs.top());
+                            break;
+                        }
+                        aFClubs.pop();
+                        countaC--;
+                    }
+                    // we search for 13th pile and tableau weave plays
+                    else
+                    {
+                        // search algorithm from linked list would have been good here
+                        // we search to see if last card is in 13th fanned pile
+                        for(int i = 0; i < t13.size(); i++)
+                        {
+                            if(lastCardPick == t13[i])
+                            {
+                                for(int i = 0; i <= tsize; i++)
+                                {
+                                    tableaus[lastCardChoice - 1].push(lastCardPick);
+                                    break;
+                                }
+                                t13.pop_back();
+                                break;
+                            }
+
+                        }
+                        
+                        //this handles cards picked from tableau and weaved into another tableau
+                        for (int i = 0; i <= tsize; i++)
+                        {
+                            bool found = false;
+
+                            // first in queue was first in stack
+                            while(!tableaus[i].isEmptyStack())
+                            {
+                                    qTableaus[i].enqueue(tableaus[i].top());
+                                    tableaus[i].pop();
+                            }
+
+                            // now first in queue = last in stack
+                            qTableaus[i].revQueue(qTableaus[i]);
+
+                            // if the last card choice is equal to the tableau index in the array
+                            if (lastCardPick == qTableaus[i].front())
+                            {
+                                found = true;
+                            }
+                            
+                            if(found)
+                            {
+                                tableaus[lastCardChoice - 1].push(qTableaus[i].front());
+                                // dequeue last in stack
+                                qTableaus[i].dequeue();
+
+                                // last in original stack is pushed first
+                                while(!qTableaus[i].isEmptyQueue())
+                                {
+                                    tableaus[i].push(qTableaus[i].dequeue());
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                while(!qTableaus[i].isEmptyQueue())
+                                {
+                                    tableaus[i].push(qTableaus[i].dequeue());
+                                }
+                            }
+                        }
+
+                    }
+                }
+                // if last card choice came from exile or 13thpile
+                else if(lastCardChoice == kingPile || lastCardChoice == EXILE)
+                {
+                    // if card picked from 13th pile
+                    if(lastCardChoice == kingPile)
+                    {
+                        // search from foundation and put back into 13th pile
+                        if (lastCardPick == kFHearts.top())
+                        {
+                            t13.push_back(kFHearts.top());
+                            kFHearts.pop();
+                            countkH++;
+
+                        }
+                        else if (lastCardPick == kFSpades.top())
+                        {
+                            t13.push_back(kFSpades.top());
+                            kFSpades.pop();
+                            countkS++;
+                        }
+                        else if (lastCardPick == kFDiamonds.top())
+                        {
+                            t13.push_back(kFDiamonds.top());
+                            kFDiamonds.pop();
+                            countkD++;
+                            
+                        }
+                        else if (lastCardPick == kFClubs.top())
+                        {
+                            t13.push_back(kFClubs.top());
+                            kFClubs.pop();
+                            countkC++;
+                        }
+                        else if (lastCardPick == aFHearts.top())
+                        {
+                            t13.push_back(aFHearts.top());
+                            aFHearts.pop();
+                            countaH--;
+                            
+                        }
+                        else if (lastCardPick == aFSpades.top())
+                        {
+                            t13.push_back(aFSpades.top());
+                            aFSpades.pop();
+                            countaS--;
+                            
+                        }
+                        else if (lastCardPick == aFDiamonds.top())
+                        {
+                            t13.push_back(aFDiamonds.top());
+                            aFDiamonds.pop();
+                            countaD--;
+                            
+                        }
+                        else if (lastCardPick == aFClubs.top())
+                        {
+                            t13.push_back(aFClubs.top());
+                            aFClubs.pop();
+                            countaC--;
+                        }
+                        // from 13th pile to tableau weave play
+                        else
+                        {
+                            //we search if it was placed in a tableau
+                            for (int i = 0; i <= tsize; i++)
+                            {
+                                bool found = false;
+                                // first in queue was first in stack
+                                while(!tableaus[i].isEmptyStack())
+                                {
+                                        qTableaus[i].enqueue(tableaus[i].top());
+                                        tableaus[i].pop();
+                                }
+
+                                // now first in queue = last in stack
+                                qTableaus[i].revQueue(qTableaus[i]);
+
+                                // if the last card choice is equal to the tableau index in the array
+                                if (lastCardPick == qTableaus[i].front())
+                                {
+                                    found = true;
+                                }
+                                
+                                if(found)
+                                {
+                                    t13.push_back(qTableaus[i].front());
+                                    // dequeue last in stack
+                                    qTableaus[i].dequeue();
+
+                                    // last in original stack is pushed first
+                                    while(!qTableaus[i].isEmptyQueue())
+                                    {
+                                        tableaus[i].push(qTableaus[i].dequeue());
+                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    while(!qTableaus[i].isEmptyQueue())
+                                    {
+                                        tableaus[i].push(qTableaus[i].dequeue());
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    //lastCard was picked from exile
+                    else if (lastCardChoice == EXILE)
+                    {
+                        //played on foundation
+                        if (lastCardPick == kFHearts.top())
+                        {
+                            exile.push(kFHearts.top());
+                            kFHearts.pop();
+                            countkH++;
+
+                        }
+                        else if (lastCardPick == kFSpades.top())
+                        {
+                            exile.push(kFSpades.top());
+                            kFSpades.pop();
+                            countkS++;
+                        }
+                        else if (lastCardPick == kFDiamonds.top())
+                        {
+                            exile.push(kFDiamonds.top());
+                            kFDiamonds.pop();
+                            countkD++;
+                            
+                        }
+                        else if (lastCardPick == kFClubs.top())
+                        {
+                            exile.push(kFClubs.top());
+                            kFClubs.pop();
+                            countkC++;
+                        }
+                        else if (lastCardPick == aFHearts.top())
+                        {
+                            exile.push(aFHearts.top());
+                            aFHearts.pop();
+                            countaH--;
+                            
+                        }
+                        else if (lastCardPick == aFSpades.top())
+                        {
+                            exile.push(aFSpades.top());
+                            aFSpades.pop();
+                            countaS--;
+                            
+                        }
+                        else if (lastCardPick == aFDiamonds.top())
+                        {
+                            exile.push(aFDiamonds.top());
+                            aFDiamonds.pop();
+                            countaD--;
+                            
+                        }
+                        else if (lastCardPick == aFClubs.top())
+                        {
+                            exile.push(aFClubs.top());
+                            aFClubs.pop();
+                            countaC--;
+                        }
+                        //played on tableau or 13th pile
+                        else 
+                        {
+                            //13th pile
+                            for(int i = 0; i < t13.size(); i++)
+                            {
+                                if(lastCardPick == t13[i])
+                                {
+                                    exile.push(lastCardPick);
+                                    break;
+                                }
+
+                            }
+
+                            //tableau
+                            for (int i = 0; i <= tsize; i++)
+                            {
+                                bool found = false;
+                                // first in queue was first in stack
+                                while(!tableaus[i].isEmptyStack())
+                                {
+                                        qTableaus[i].enqueue(tableaus[i].top());
+                                        tableaus[i].pop();
+                                }
+
+                                // now first in queue = last in stack
+                                qTableaus[i].revQueue(qTableaus[i]);
+
+                                // if the last card choice is equal to the tableau index in the array
+                                if (lastCardPick == qTableaus[i].front())
+                                {
+                                    found = true;
+                                }
+                                
+                                if(found)
+                                {
+                                    exile.push(qTableaus[i].front());
+                                    // dequeue last in stack
+                                    qTableaus[i].dequeue();
+
+                                    // last in original stack is pushed first
+                                    while(!qTableaus[i].isEmptyQueue())
+                                    {
+                                        tableaus[i].push(qTableaus[i].dequeue());
+                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    while(!qTableaus[i].isEmptyQueue())
+                                    {
+                                        tableaus[i].push(qTableaus[i].dequeue());
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            // to keep track of plays
+            lastCardChoice = cardChoice;
+            lastCardPick = cardPick;
+            playCount++;
+
+        }
+
+        if (won(kFHearts, kFDiamonds, kFSpades, kFClubs, aFHearts, aFDiamonds, aFSpades, aFClubs))
+        {
+            std::cout << "Congratulations, You Won!!!!!" << std::endl;
+        }
+        else
+        {
+            //if no more plays bool function condition is met
+            std::cout << "Better Luck Next Time." << std::endl;
+        }
+
+        if(!playAgain())
+        {
+            exit(0);
+        }
+
+        
+    }
+}
+*/
