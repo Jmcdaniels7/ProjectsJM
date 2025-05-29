@@ -1,0 +1,58 @@
+<html>
+<head>
+<title> Brazilian Jiu Jitsu</title>
+</head>
+<body bgcolor="green">
+<body>
+
+<p>
+
+<h2>My BJJ Journey</h2>
+
+
+
+<font color="white">Jiu Jitsu is a self-defense and combat sport that I love to do during my time aside from college.
+</br>
+I started my BJJ journey about 3 months ago, alongside boxing and Muay Thai( a Thailand oriented 
+</br>
+kickboxing/boxing). I have found something that has given me confidence and a humble mentality.
+</br>
+I haven't had anything else give me what BJJ has given me so far and I have only been training.
+</br>
+for 3 months. I have only just begun to learn a small amount of what this martial art has to offer
+</br>
+and I a eager to learn more everytime I go to a class session.</font>
+
+
+<h2>What is special about BJJ</h2>
+</p>
+ <font color="white">I would recommend this sport/self-defense martial art to anyone who may simply 
+</br>
+want to get a good workout or be the next MMA/IBBJF world champion. The sport is said to be 
+</br>
+designed so that the smaller man/woman can win in a self-defense situation. That is also what
+</br>
+gained my attention because I am not a giant human being and most people are not as well.
+</br>
+This is what makes this martial art special because it is designed for technique to beat 
+</br>
+strength in close-quarters combat. There are not any martial arts that are similar to 
+</br>
+Brazilian Jiu Jitsu and that is what makes it special.
+</br> 
+</br>
+If you would like to try BJJ for the first time here is a couple places I recommend.</font>
+</br>
+
+
+<a href="https://www.toplevelgym.com">
+The gym I go to now
+</a>
+</br>
+
+<a href="https://www.jackmcvicker.com">
+Associated BJJ program with gym I go to
+</a>
+
+</p>
+</body>
