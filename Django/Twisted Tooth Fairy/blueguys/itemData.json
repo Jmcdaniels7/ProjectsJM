@@ -1,0 +1,4 @@
+[
+{"id":1,"title":"Sweat Shirt","description":"Cotton Sweat Shirt comes in 5 colors and 5 sizes","price":24.98999999999999844,"created_date":"2025-03-21 13:30:35","published_date":"2025-03-21 13:31:48","image":"","stock":0,"category":null},
+{"id":2,"title":"Sweat Pants","description":"Cotton Sweat Pants comes in 3 colors and 3 sizes","price":18.98999999999999843,"created_date":"2025-03-21 13:32:01","published_date":"2025-03-21 13:32:46","image":"","stock":0,"category":null},
+{"id":3,"title":"Water Bottle","description":"Metal Water bottle that keeps your liquids cool. Comes in 6 colors.","price":9.99000000000000021,"created_date":"2025-03-21 13:32:51","published_date":"2025-03-21 13:33:45","image":"","stock":0,"category":null}]

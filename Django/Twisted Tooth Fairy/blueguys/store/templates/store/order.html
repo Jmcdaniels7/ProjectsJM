@@ -1,0 +1,58 @@
+{% extends 'store/base.html' %}
+{% block content %}
+
+ <style>
+  .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5); 
+      padding: 20px 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
+  }
+
+  .order-contain {
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  .order-contain2 {
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+ </style>
+
+<div class="wrapper mt-0">
+  <div class="order-contain"> 
+    <h2>Your Current Orders</h2>
+   </div>
+    
+   <div class="order-contain2">
+    {% if orders %}
+      <ul>
+        {% for order in orders %}
+          <li>
+            <strong>Order #{{ order.id }}</strong> — {{ order.order_date }}<br>
+            <ul>
+              {% for item in order.items.all %}
+                <li>{{ item.quantity }} × {{ item.item.title }}</li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+  
+      <p>You have no current orders.</p>
+  
+    {% endif %}
+  
+    <a href="{% url 'order_history' %}">Go to Order History</a>
+  </div>
+
+</div>
+ 
+
+ 
+{% endblock %}

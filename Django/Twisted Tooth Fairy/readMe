@@ -1,0 +1,18 @@
+ Installation Instructions
+
+Navigate to https://github.com/Jmcdaniels7/BlueTeamProject/releases and download the latest release
+
+Install the code editor of your choice. We used VSCode, available from here: https://code.visualstudio.com/ 
+
+Next install Python. https://www.python.org/downloads 
+
+Open the project folder after extracting the file with VSCode
+
+Once all of that is installed, you’ll use a terminal in VSCode to do the rest. The first thing you’ll do is open a terminal and type: cd ./blueguys/ to enter the parent directory of the application.
+
+Install Django using the following command: python -m pip install Django.
+
+Once here, type in the terminal: python manage.py runserver.
+7.5	If you receive an error stating: “{{Local path}}\python.exe: can't open file '{{local path}}\\manage.py': [Errno 2] No such file or directory” || Make sure you’re at the correct location in the directory. You should see the path in the terminal reading the following: “{{local install path}}\blueguys>”
+You should now be running a local dev server. Ctrl + Click the link in your console to open a tab in your browser, or copy the following default URL and paste it into your browser: http://127.0.0.1:8000/ (this link will not work if you changed the address or port of your local dev server. Check your settings.py file under /blueguys/mysite around line 26, for ALLOWED_HOSTS to verify your localhost addresses)
+

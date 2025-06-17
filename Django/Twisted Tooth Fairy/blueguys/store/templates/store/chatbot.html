@@ -1,0 +1,222 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+   .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5); 
+      padding: 20px 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
+  }
+
+  .cb-contain {
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  .msg-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    height: 70%;
+    
+}
+
+.msg-header{
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 10px;
+}
+.msg-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.msgimg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.username {
+    font-weight: bold;
+    color: #eee;
+    margin: 0;
+}
+
+.chat-page {
+    padding: 0 0 50px 0;
+}
+.msg-inbox {
+    border: 2px solid #000;
+    overflow: hidden;
+    border-top: 1px solid #000;
+    border-bottom: none;
+}
+.chats {
+    padding: 30px 15px 0 25px;
+}
+.msg-page{
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.msg-bottom {
+    border-top: 1px solid #000;
+    background-color: #ffffff;
+    /* padding: 10px 20px; */
+    border: 2px solid #000;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+.input-group{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.form-control {
+    flex: 1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 0;
+    background-color: #fff;
+    color: #ffffff;
+}
+.send-btn {
+    background: transparent;
+    border: none;
+    padding: 0 15px;
+    font-size: 1.5rem;
+    color: #495057;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease-in-out;
+}
+.send-btn:hover {
+    color: #000
+}
+input:focus,
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+.recieved-chats-img{
+    display: flex;
+    float: left;
+    width: 50px;
+}
+.recieved-msg{
+    display: flex;
+    padding: 0 0 0 10px;
+    width: 92%;
+}
+.recieved-msg-inbox{
+    width: 80%;
+}
+.recieved-msg-inbox p {
+    background: #efefef none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #646464;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: #00000025 0px 5px 5px 2px;
+}
+    p {
+    overflow-wrap: break-word;
+}
+.time {
+    color: #777;
+    display: flex;
+    font-size: .6rem;
+    margin-left: 1rem;
+    padding-right: 25%;
+}
+.recieved-chats {
+    padding-bottom: 10px;
+}
+.user-message {
+    background-color: #dcf8c6;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin: 10px 0;
+    max-width: 70%;
+    align-self: flex-end;
+    min-width: 300px;
+    position: relative;
+  }
+  
+.chat-message .time {
+    color: #777;
+    display: flex;
+    font-size: .6rem;
+    margin-left: 1rem;
+    padding-right: 25%;
+  }
+  .bot-message {
+    align-self: flex-start;
+    background-color: #fff;
+  }
+
+</style>
+
+<div class="wrapper mt-0">
+
+  <div class="cb-contain">
+    <h2>Support</h2>
+  </div>
+
+  <div class="msg-container">
+    <div class="msg-header">
+      <div class="msg-profile">
+        <img src="helpimg1.png" class="msgimg" />
+        <p class="username">Hello, {{user.first_name}} </p>
+      </div>
+    </div>
+    <div class="chat-page">
+      <div class="msg-inbox">
+        <div class="chats">
+          <div class="msg-page" id="chat-area">
+            <div class="recieved-chats">
+              <div class="recieved-chats-img">
+                <img src="ai_img.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="msg-bottom">
+        <div class="input-group">
+          <input type="text" class="form-control" id= "chat-input" placeholder="Type your question!">
+          <button class="send-btn" id="send-btn" aria-label="Send">
+            <i class="bi bi-send"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="{% static 'scripts/chatbotScript.js' %}" defer></script>
+  {% endblock %}

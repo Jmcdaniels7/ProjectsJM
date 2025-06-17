@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card mx-auto" style="max-width: 600px;">
+        {% if item.image %}
+            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.title }}">
+        {% else %}
+            <img src="{% static 'images/default_image_path.jpg' %}" class="card-img-top" alt="{{ item.title }}">
+        {% endif %}
+        <div class="card-body">
+            <h2 class="card-title" style="color: #a29bfe;">{{ item.title }}</h2>
+            <p class="card-text">{{ item.description }}</p>
+            <p><strong>Price:</strong> ${{ item.price|floatformat:2 }}</p>
+            <a href="{% url 'store_page' %}" class="btn btn-secondary mt-3">Back to Store</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
