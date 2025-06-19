@@ -1,0 +1,1 @@
+Hogwarts DB practicing preventing sql injection, transactions, sql querying, and regular expressions.
